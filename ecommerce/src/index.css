@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f5f2eb;
+  --color-cream-dark: #ebe6db;
+  --color-gold: #c5a367;
+  --color-gold-light: #d4b87a;
+  --color-gold-dark: #a8884f;
+  --color-forest: #0b1c14;
+  --color-forest-mid: #143026;
+  --color-ink: #1a1a1a;
+  --color-muted: #6b655c;
+
+  --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    margin: 0;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-gold) 35%, transparent);
+  }
+}
+
+.page-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--color-forest);
+}
+
+.btn-forest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-forest);
+  color: var(--color-cream);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease;
+}
+.btn-forest:hover {
+  background: var(--color-forest-mid);
+}
+.btn-forest:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-gold);
+  color: var(--color-forest);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.25s ease;
+}
+.btn-gold:hover {
+  background: var(--color-gold-light);
+}
+
+.product-card img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
